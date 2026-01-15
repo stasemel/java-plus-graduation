@@ -6,9 +6,16 @@ spring:
     gateway:
       discovery.locator.enabled: true
       routes:
-        - id: main-service-service-route
+        - id: main-service-route
           uri: lb://main-service
+
           predicates:
-            - Path=/**
-          filters:
-            - PrefixPath=/
+            - Path=/admin/**,/categories/**,/compilations/**,/events/**,/comments/**,/users/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+  endpoint:
+    gateway:
+      enabled: true
