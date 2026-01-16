@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.2</version>
+        <version>3.5.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -21,18 +21,14 @@
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.38</lombok.version>
-        <jakarta.validation.version>3.0.2</jakarta.validation.version>
+        <jakarta.validation.version>3.1.1</jakarta.validation.version>
         <mapstruct.version>1.6.3</mapstruct.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
         <mockwebserver.version>4.12.0</mockwebserver.version>
         <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
-        <spring-boot-starter-validation.version>3.3.2</spring-boot-starter-validation.version>
-        <spring-cloud-starter-config>4.1.3</spring-cloud-starter-config>
-        <spring-cloud-starter-netflix-eureka-client>4.1.3</spring-cloud-starter-netflix-eureka-client>
-        <spring-cloud-commons>4.1.3</spring-cloud-commons>
-        <spring-cloud-config-server>4.1.3</spring-cloud-config-server>
-        <spring-cloud-starter-gateway>4.1.3</spring-cloud-starter-gateway>
+        <spring-boot-starter-validation.version>3.5.8</spring-boot-starter-validation.version>
+        <spring-cloud-dependencies.version>2025.0.1</spring-cloud-dependencies.version>
     </properties>
     <modules>
         <module>stats</module>
@@ -71,13 +67,11 @@
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
-                <!--                <optional>true</optional>-->
             </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-processor</artifactId>
                 <version>${mapstruct.version}</version>
-                <!--                <optional>true</optional>-->
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -104,28 +98,10 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-config</artifactId>
-                <version>${spring-cloud-starter-config}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-                <version>${spring-cloud-starter-netflix-eureka-client}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-commons</artifactId>
-                <version>${spring-cloud-commons}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-config-server</artifactId>
-                <version>${spring-cloud-config-server}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-gateway</artifactId>
-                <version>${spring-cloud-starter-gateway}</version>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
         </dependencies>
@@ -260,8 +236,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <!--                    <source>8</source>-->
-                    <!--                    <target>8</target>-->
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
