@@ -4,20 +4,19 @@ server:
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: main-service-route
-          uri: lb://main-service
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+          routes:
+            - id: main-service-route
+              uri: lb://main-service
+              predicates:
+                - Path=/admin/**,/categories/**,/compilations/**,/events/**,/comments/**,/users/**
 
-          predicates:
-            - Path=/admin/**,/categories/**,/compilations/**,/events/**,/comments/**,/users/**
 management:
   endpoints:
     web:
       exposure:
         include: health,info,gateway
-  endpoint:
-    gateway:
-      enabled: true
