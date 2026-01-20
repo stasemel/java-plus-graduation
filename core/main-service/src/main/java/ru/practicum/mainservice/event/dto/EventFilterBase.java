@@ -3,12 +3,14 @@ package ru.practicum.mainservice.event.dto;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.PositiveOrZero;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
@@ -20,15 +22,16 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class EventFilterBase {
     /**
      * public + admin
      * список идентификаторов категорий в которых будет вестись поиск
      */
-    private List<Long> categories;
+    List<Long> categories;
 
     // public + admin
-    private LocalDateTime rangeStart;
+    LocalDateTime rangeStart;
 
     // public + admin
     private LocalDateTime rangeEnd;

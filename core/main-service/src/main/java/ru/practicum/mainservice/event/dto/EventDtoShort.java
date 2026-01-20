@@ -1,9 +1,11 @@
 package ru.practicum.mainservice.event.dto;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import ru.practicum.mainservice.category.CategoryDto;
 import ru.practicum.mainservice.user.dto.UserDto;
 
@@ -13,14 +15,15 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class EventDtoShort {
-    private Long id;
-    private String annotation;
-    private CategoryDto category;
-    private Long confirmedRequests;
-    private LocalDateTime eventDate;
-    private UserDto initiator;
-    private Boolean paid;
-    private String title;
-    private Long views;
+    Long id;
+    String annotation;
+    CategoryDto category;
+    Long confirmedRequests;
+    LocalDateTime eventDate;
+    UserDto initiator;
+    Boolean paid;
+    String title;
+    Long views;
 }

@@ -1,10 +1,12 @@
 package ru.practicum.mainservice.event.dto;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 import ru.practicum.mainservice.event.enums.EventSort;
 
@@ -14,26 +16,27 @@ import ru.practicum.mainservice.event.enums.EventSort;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class EventFilterPublic extends EventFilterBase {
 
     /**
      * Public
      * Текст для поиска в содержимом аннотации и подробном описании события
      */
-    private String text;
+    String text;
 
     // Public
-    private Boolean paid;
+    Boolean paid;
 
     // Public
-    private Boolean onlyAvailable;
+    Boolean onlyAvailable;
 
     /**
      * Public
      * Вариант сортировки: по дате события или по количеству просмотров
      * Available values : EVENT_DATE, VIEWS
      */
-    private EventSort sort;
+    EventSort sort;
 
 
 }

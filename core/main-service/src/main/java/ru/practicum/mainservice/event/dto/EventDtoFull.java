@@ -2,9 +2,11 @@ package ru.practicum.mainservice.event.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 import ru.practicum.mainservice.category.CategoryDto;
 import ru.practicum.mainservice.event.enums.EventState;
 import ru.practicum.mainservice.location.LocationDto;
@@ -15,30 +17,31 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class EventDtoFull {
-    private Long id;
+    Long id;
 
     @NotBlank
     @Size(min = 20, max = 2000)
-    private String annotation;
+    String annotation;
 
-    private CategoryDto category;
-    private Long confirmedRequests;
-    private LocalDateTime createdOn;
-    private String description;
+    CategoryDto category;
+    Long confirmedRequests;
+    LocalDateTime createdOn;
+    String description;
 
-    private LocalDateTime eventDate;
+    LocalDateTime eventDate;
 
-    private UserDto initiator;
+    UserDto initiator;
     LocationDto location;
-    private Boolean paid;
-    private Integer participantLimit;
+    Boolean paid;
+    Integer participantLimit;
 
-    private LocalDateTime publishedOn;
+    LocalDateTime publishedOn;
 
-    private Boolean requestModeration;
-    private EventState state;
-    private String title;
-    private Long views;
+    Boolean requestModeration;
+    EventState state;
+    String title;
+    Long views;
 
 }
