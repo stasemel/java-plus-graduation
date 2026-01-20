@@ -24,8 +24,8 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_DB=stats-db
-      - POSTGRES_USER=dbuser
-      - POSTGRES_PASSWORD=12345
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
     healthcheck:
       test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
       timeout: 5s
